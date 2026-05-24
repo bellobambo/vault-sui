@@ -1,48 +1,54 @@
 # Vault
 
-Vault is an AI-powered student finance platform built on Sui. It helps students manage allowances, stipends, and daily spending through enforceable onchain budget vaults, category-based spending rules, flexible category swaps, overspending controls, and long-term financial memory powered offchain by Walrus and MemWal.
+## AI-Powered Student Finance On Sui
 
-Unlike a traditional budgeting app that only records expenses after they happen, Vault enforces budget rules directly onchain. Students deposit SUI into a budget vault, allocate that balance across spending categories, and make tracked payments from the vault. The contract records events that an offchain AI/indexer layer can persist to Walrus and MemWal for personalized financial guidance over time.
+Vault helps students manage allowances, stipends, and daily spending through onchain budget vaults.
 
-## Published Project
+Students deposit SUI, split funds across categories, spend from those categories, swap unused allocation when needed, and optionally overspend with a higher fee. AI memory is handled offchain with Walrus and MemWal using contract events and memory references.
 
-Current recorded testnet package:
+## Project IDs
 
 ```txt
+Network: Testnet
+
 Package ID:
 0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5
 
-Original ID:
-0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5
-
-TreasuryConfig object:
+TreasuryConfig:
 0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511
 
-Deployer / treasury address:
+Deployer / Treasury:
 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201
 
-Upgrade capability:
+Upgrade Cap:
 0xd6c1d7d14069c02d6c65555be9452eda8aaa4946243b880af5b021b7a46e2f19
 ```
 
-Note: the local contract may include changes made after the last publish, including the `Other` category average rule. Republish the package before relying on those latest changes on testnet.
+> Note: the local contract includes changes made after the last publish, including the `Other` category validation. Republish before relying on those latest changes on testnet.
 
-## Core Flow
+## Core Features
 
-1. Student connects a Sui wallet.
-2. Student creates a budget by choosing a cycle, date range, total amount, and category allocations.
-3. Student deposits SUI into the budget vault in one transaction.
-4. Student spends from a selected category by entering a recipient, amount, and note.
-5. The contract checks ownership, active status, vault balance, category allocation, and cycle expiry.
-6. If the category has enough remaining allocation, payment succeeds.
-7. If the category is exhausted, the student can swap unused allocation from another category with a 5% fee.
-8. If overspending is enabled, the student can spend past the category allocation with a 10% fee.
-9. At the end of the cycle, remaining funds can be saved, withdrawn, rolled over, or redistributed into a new budget.
-10. Events emitted by the contract can be indexed and stored through Walrus and MemWal as persistent AI memory.
+- Create daily, weekly, monthly, half-year, or yearly budgets.
+- Deposit SUI into a student-owned `BudgetVault`.
+- Allocate funds to categories like Food, Transport, Academic, Entertainment, and Other.
+- Spend directly from a selected category.
+- Swap unused allocation between categories with a fixed 5% fee.
+- Overspend if enabled with a fixed 10% fee.
+- Close expired budgets by saving, withdrawing, rolling over, or redistributing funds.
+- Emit events for offchain AI memory using Walrus and MemWal.
 
-## Budget Categories
+## Fees
 
-The expected default category IDs are:
+```txt
+Category swap fee: 5%
+Overspending fee: 10%
+Fee destination: deployer treasury stored in TreasuryConfig
+Fee source: student's BudgetVault balance
+```
+
+## Category Rule
+
+Default category IDs:
 
 ```txt
 0 = Food
@@ -52,11 +58,7 @@ The expected default category IDs are:
 4 = Other
 ```
 
-The contract enforces this rule when creating or redistributing a budget:
-
-```txt
-Other allocation must not be greater than the average allocation of all non-Other categories.
-```
+The `Other` category cannot be above the average of the main categories.
 
 Example:
 
@@ -67,293 +69,138 @@ Academic: 25 SUI
 Entertainment: 10 SUI
 Other: 5 SUI
 
-Average of main categories = 23.75 SUI
+Main average = 23.75 SUI
 Other = 5 SUI, so this is valid.
 ```
 
-## Fees
+## Contract Objects
 
-Fees are fixed in the contract:
+### BudgetVault
 
-```txt
-Category swap fee: 5%
-Overspending fee: 10%
-```
+Student-owned object that stores budget balance, category allocations, spending totals, cycle dates, overspending rules, and memory reference.
 
-Fees are deducted from the student's existing `BudgetVault` balance, not from a separate wallet payment.
+### TreasuryConfig
 
-Fee destination:
+Shared object created during publish. Stores the deployer treasury address that receives swap and overspending fees.
 
-```txt
-The deployer address stored in the shared TreasuryConfig object.
-```
+### SavingsVault
 
-## Smart Contract Objects
+Student-owned object created when unused budget funds are moved to savings.
 
-`BudgetVault`
+## Write Functions
 
-Owned by the student. Stores the active budget state, category allocations, spend totals, SUI balance, overspending setting, and offchain memory reference.
+### `create_budget`
 
-`TreasuryConfig`
+Creates a funded budget vault, stores category allocations, validates the `Other` category rule, and transfers the vault to the student.
 
-Shared object created during package initialization. Stores the deployer treasury address used for swap and overspend fees.
+### `spend`
 
-`SavingsVault`
+Pays a recipient from a category when that category has enough remaining allocation.
 
-Owned by the student. Created when the student closes an expired budget using the save action.
+### `swap_categories`
 
-## Main Write Functions
+Moves unused allocation from one category to another and charges the 5% swap fee.
 
-`create_budget`
+### `overspend`
 
-Creates a funded budget vault, stores category allocations, validates the `Other` category rule, and transfers the vault object to the student.
+Allows spending beyond a category allocation if overspending is enabled and charges the 10% overspend fee.
 
-`spend`
+### `close_budget`
 
-Pays a recipient from a category when the category has enough remaining allocation. No platform fee is charged.
+Closes an expired budget and saves, withdraws, or rolls over remaining funds.
 
-`swap_categories`
+### `redistribute_budget`
 
-Moves unused allocation from one category to another. Charges a 5% fee to the deployer treasury.
+Starts a new budget cycle using the remaining balance in an expired vault.
 
-`overspend`
+### `withdraw_savings`
 
-Allows a student to spend beyond a category allocation if overspending is enabled. Charges a 10% fee to the deployer treasury.
+Withdraws all SUI from a `SavingsVault`.
 
-`close_budget`
+## Sample Payloads
 
-Closes an expired budget and either saves remaining funds, withdraws them, or returns them for rollover handling.
-
-`redistribute_budget`
-
-Starts a new budget cycle using the remaining balance in an expired vault. The new allocations must equal the remaining vault balance.
-
-`withdraw_savings`
-
-Withdraws all SUI from a `SavingsVault` back to the student wallet.
-
-## Read And Helper Functions
+### Create Budget
 
 ```txt
-cycle_daily
-cycle_weekly
-cycle_monthly
-cycle_half_year
-cycle_yearly
-action_save
-action_roll_over
-action_withdraw
-action_redistribute
-swap_fee_bps
-overspend_fee_bps
-owner
-is_active
-total_spent
-total_fees_paid
-vault_balance
-treasury
-category_count
-category_remaining
-category_spent
-```
+Function: vault::create_budget
 
-## Sample Human-Readable Payloads
-
-Create budget:
-
-```txt
-Function:
-vault::create_budget
-
-deposit:
-100 SUI
-
-cycle:
-Monthly
-
-start_ms:
-1764547200000
-
-end_ms:
-1767225599000
+deposit: 100 SUI
+cycle: Monthly
+start_ms: 1764547200000
+end_ms: 1767225599000
 
 categories:
-- id: 0, name: Food, allocation: 40 SUI
-- id: 1, name: Transport, allocation: 20 SUI
-- id: 2, name: Academic, allocation: 25 SUI
-- id: 3, name: Entertainment, allocation: 10 SUI
-- id: 4, name: Other, allocation: 5 SUI
+- Food: 40 SUI
+- Transport: 20 SUI
+- Academic: 25 SUI
+- Entertainment: 10 SUI
+- Other: 5 SUI
 
-allow_overspend:
-true
-
-memory_ref:
-walrus://student-001/budget/monthly-2025-12
+allow_overspend: true
+memory_ref: walrus://student-001/budget/monthly-2025-12
 ```
 
-Spend:
+### Spend
 
 ```txt
-Function:
-vault::spend
+Function: vault::spend
 
-vault:
-0xBUDGET_VAULT_OBJECT_ID
-
-category_id:
-0
-
-recipient:
-0xRECIPIENT_ADDRESS
-
-amount:
-8 SUI
-
-note:
-Lunch at cafeteria
-
-clock:
-0x6
+vault: 0xBUDGET_VAULT_OBJECT_ID
+category_id: 0
+recipient: 0xRECIPIENT_ADDRESS
+amount: 8 SUI
+note: Lunch at cafeteria
+clock: 0x6
 ```
 
-Swap categories:
+### Swap Categories
 
 ```txt
-Function:
-vault::swap_categories
+Function: vault::swap_categories
 
-treasury_config:
-0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511
+treasury_config: 0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511
+vault: 0xBUDGET_VAULT_OBJECT_ID
+from_category_id: 1
+to_category_id: 0
+amount: 5 SUI
+clock: 0x6
 
-vault:
-0xBUDGET_VAULT_OBJECT_ID
-
-from_category_id:
-1
-
-to_category_id:
-0
-
-amount:
-5 SUI
-
-clock:
-0x6
-
-Fee:
-5% = 0.25 SUI
+fee: 0.25 SUI
 ```
 
-Overspend:
+### Overspend
 
 ```txt
-Function:
-vault::overspend
+Function: vault::overspend
 
-treasury_config:
-0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511
+treasury_config: 0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511
+vault: 0xBUDGET_VAULT_OBJECT_ID
+category_id: 0
+recipient: 0xRECIPIENT_ADDRESS
+amount: 8 SUI
+note: Emergency food expense
+clock: 0x6
 
-vault:
-0xBUDGET_VAULT_OBJECT_ID
-
-category_id:
-0
-
-recipient:
-0xRECIPIENT_ADDRESS
-
-amount:
-8 SUI
-
-note:
-Emergency food expense
-
-clock:
-0x6
-
-Fee:
-10% = 0.8 SUI
+fee: 0.8 SUI
+total deducted: 8.8 SUI
 ```
 
-Close budget:
+## Walrus And MemWal
+
+Walrus and MemWal are integrated offchain, not inside the Move contract.
 
 ```txt
-Function:
-vault::close_budget
+Contract:
+Enforces SUI budget rules and emits events.
 
-vault:
-0xBUDGET_VAULT_OBJECT_ID
-
-action:
-Save, Roll Over, or Withdraw
-
-clock:
-0x6
-```
-
-Redistribute budget:
-
-```txt
-Function:
-vault::redistribute_budget
-
-vault:
-0xEXPIRED_BUDGET_VAULT_OBJECT_ID
-
-cycle:
-Weekly
-
-start_ms:
-1767225600000
-
-end_ms:
-1767830399000
-
-new categories:
-- id: 0, name: Food, allocation: 15 SUI
-- id: 1, name: Transport, allocation: 8 SUI
-- id: 2, name: Academic, allocation: 10 SUI
-- id: 3, name: Entertainment, allocation: 4 SUI
-- id: 4, name: Other, allocation: 3 SUI
-
-allow_overspend:
-false
-
-memory_ref:
-walrus://student-001/budget/weekly-2026-01-01
-
-clock:
-0x6
-```
-
-Withdraw savings:
-
-```txt
-Function:
-vault::withdraw_savings
-
-savings:
-0xSAVINGS_VAULT_OBJECT_ID
+Frontend / Backend / Indexer:
+Reads events, writes memory to Walrus/MemWal, recalls memory for AI guidance.
 ```
 
 ## Development
 
-Build the package:
-
 ```bash
 sui move build
-```
-
-Run tests:
-
-```bash
 sui move test
-```
-
-Publish:
-
-```bash
 sui client publish
 ```
-
-After publishing, update `Published.toml` and this README with the new package ID and shared `TreasuryConfig` object ID.
