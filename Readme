@@ -1,163 +1,359 @@
-bambo@MrBello:~/vault$ sui client publish
-INCLUDING DEPENDENCY MoveStdlib
-INCLUDING DEPENDENCY Sui
-BUILDING vault
-Transaction Digest: 68tAyCtY2BP8HjdoLQWs3CYtPXWT6ug6QaCcGzomUH7W
-╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Transaction Data                                                                                             │
-├──────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Sender: 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201                                   │
-│ Gas Owner: 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201                                │
-│ Gas Budget: 48724800 MIST                                                                                    │
-│ Gas Price: 1000 MIST                                                                                         │
-│ Gas Payment:                                                                                                 │
-│  ┌──                                                                                                         │
-│  │ ID: 0x96845a1f847bb00bb005b497f5c8eb7c86cea3a3e908eaca36ae9803617175a9                                    │
-│  │ Version: 349181603                                                                                        │
-│  │ Digest: 7mKo9WunnZTUZqd9zKp12b1PNjUv1RXrNqfSxW9igzZr                                                      │
-│  └──                                                                                                         │
-│                                                                                                              │
-│ Transaction Kind: Programmable                                                                               │
-│ ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────╮ │
-│ │ Input Objects                                                                                            │ │
-│ ├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤ │
-│ │ 0   Pure Arg: Type: address, Value: "0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201" │ │
-│ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
-│ ╭─────────────────────────────────────────────────────────────────────────╮                                  │
-│ │ Commands                                                                │                                  │
-│ ├─────────────────────────────────────────────────────────────────────────┤                                  │
-│ │ 0  Publish:                                                             │                                  │
-│ │  ┌                                                                      │                                  │
-│ │  │ Dependencies:                                                        │                                  │
-│ │  │   0x0000000000000000000000000000000000000000000000000000000000000001 │                                  │
-│ │  │   0x0000000000000000000000000000000000000000000000000000000000000002 │                                  │
-│ │  └                                                                      │                                  │
-│ │                                                                         │                                  │
-│ │ 1  TransferObjects:                                                     │                                  │
-│ │  ┌                                                                      │                                  │
-│ │  │ Arguments:                                                           │                                  │
-│ │  │   Result 0                                                           │                                  │
-│ │  │ Address: Input  0                                                    │                                  │
-│ │  └                                                                      │                                  │
-│ ╰─────────────────────────────────────────────────────────────────────────╯                                  │
-│                                                                                                              │
-│ Signatures:                                                                                                  │
-│    UVAnWe5cDD7/qEzf9w2zsNHwFxreLr5UadAcs/fpCXbeYQ8JrDOpqq5yt/VqVONc3cirG2y/VBNL2SG0NBl6DA==                  │
-│                                                                                                              │
-╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭───────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Transaction Effects                                                                               │
-├───────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Digest: 68tAyCtY2BP8HjdoLQWs3CYtPXWT6ug6QaCcGzomUH7W                                              │
-│ Status: Success                                                                                   │
-│ Executed Epoch: 1109                                                                              │
-│                                                                                                   │
-│ Created Objects:                                                                                  │
-│  ┌──                                                                                              │
-│  │ ID: 0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5                         │
-│  │ Owner: Immutable                                                                               │
-│  │ Version: 1                                                                                     │
-│  │ Digest: HzViqZfg1bfv1xWM46SY9mSveCxgBAcS7jyVrGJRFn8p                                           │
-│  └──                                                                                              │
-│  ┌──                                                                                              │
-│  │ ID: 0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511                         │
-│  │ Owner: Shared( 349181604 )                                                                     │
-│  │ Version: 349181604                                                                             │
-│  │ Digest: HV3fd5zHrNoBhkCDjGQt15HkWom81YQXUr8wjEjJiGuc                                           │
-│  └──                                                                                              │
-│  ┌──                                                                                              │
-│  │ ID: 0xd6c1d7d14069c02d6c65555be9452eda8aaa4946243b880af5b021b7a46e2f19                         │
-│  │ Owner: Account Address ( 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201 )  │
-│  │ Version: 349181604                                                                             │
-│  │ Digest: FEHUu3umN3q3tcZVKfFHgYFyAZZaWKPzZ78X9oJx6Y9P                                           │
-│  └──                                                                                              │
-│ Mutated Objects:                                                                                  │
-│  ┌──                                                                                              │
-│  │ ID: 0x96845a1f847bb00bb005b497f5c8eb7c86cea3a3e908eaca36ae9803617175a9                         │
-│  │ Owner: Account Address ( 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201 )  │
-│  │ Version: 349181604                                                                             │
-│  │ Digest: 77S9yjWttHyRGdFHG38aWNMtJiB5WtTSX8Zq9SkCZ2ZD                                           │
-│  └──                                                                                              │
-│ Gas Object:                                                                                       │
-│  ┌──                                                                                              │
-│  │ ID: 0x96845a1f847bb00bb005b497f5c8eb7c86cea3a3e908eaca36ae9803617175a9                         │
-│  │ Owner: Account Address ( 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201 )  │
-│  │ Version: 349181604                                                                             │
-│  │ Digest: 77S9yjWttHyRGdFHG38aWNMtJiB5WtTSX8Zq9SkCZ2ZD                                           │
-│  └──                                                                                              │
-│ Gas Cost Summary:                                                                                 │
-│    Storage Cost: 46724800 MIST                                                                    │
-│    Computation Cost: 1000000 MIST                                                                 │
-│    Storage Rebate: 978120 MIST                                                                    │
-│    Non-refundable Storage Fee: 9880 MIST                                                          │
-│                                                                                                   │
-│ Transaction Dependencies:                                                                         │
-│    3WTQu7fu7P1V483KMLstdxsDvnuCzB9neGWHpJR64hZX                                                   │
-│    BEVGeVYcUJfuAzBof6yW816Rq6hZD1kUCEoPkAr49pyf                                                   │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭──────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Transaction Block Events                                                                                 │
-├──────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│  ┌──                                                                                                     │
-│  │ EventID: 68tAyCtY2BP8HjdoLQWs3CYtPXWT6ug6QaCcGzomUH7W:0                                               │
-│  │ PackageID: 0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5                         │
-│  │ Transaction Module: vault                                                                             │
-│  │ Sender: 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201                            │
-│  │ EventType: 0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5::vault::TreasuryCreated │
-│  │ Timestamp: 1779645507755                                                                              │
-│  └──                                                                                                     │
-│  │ ParsedJSON:                                                                                           │
-│  │   ┌───────────┬────────────────────────────────────────────────────────────────────┐                  │
-│  │   │ config_id │ 0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511 │                  │
-│  │   ├───────────┼────────────────────────────────────────────────────────────────────┤                  │
-│  │   │ treasury  │ 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201 │                  │
-│  │   └───────────┴────────────────────────────────────────────────────────────────────┘                  │
-│  └──                                                                                                     │
-╰──────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭───────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Object Changes                                                                                            │
-├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Created Objects:                                                                                          │
-│  ┌──                                                                                                      │
-│  │ ObjectID: 0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511                           │
-│  │ Sender: 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201                             │
-│  │ Owner: Shared( 349181604 )                                                                             │
-│  │ ObjectType: 0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5::vault::TreasuryConfig  │
-│  │ Version: 349181604                                                                                     │
-│  │ Digest: HV3fd5zHrNoBhkCDjGQt15HkWom81YQXUr8wjEjJiGuc                                                   │
-│  └──                                                                                                      │
-│  ┌──                                                                                                      │
-│  │ ObjectID: 0xd6c1d7d14069c02d6c65555be9452eda8aaa4946243b880af5b021b7a46e2f19                           │
-│  │ Sender: 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201                             │
-│  │ Owner: Account Address ( 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201 )          │
-│  │ ObjectType: 0x2::package::UpgradeCap                                                                   │
-│  │ Version: 349181604                                                                                     │
-│  │ Digest: FEHUu3umN3q3tcZVKfFHgYFyAZZaWKPzZ78X9oJx6Y9P                                                   │
-│  └──                                                                                                      │
-│ Mutated Objects:                                                                                          │
-│  ┌──                                                                                                      │
-│  │ ObjectID: 0x96845a1f847bb00bb005b497f5c8eb7c86cea3a3e908eaca36ae9803617175a9                           │
-│  │ Sender: 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201                             │
-│  │ Owner: Account Address ( 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201 )          │
-│  │ ObjectType: 0x2::coin::Coin<0x2::sui::SUI>                                                             │
-│  │ Version: 349181604                                                                                     │
-│  │ Digest: 77S9yjWttHyRGdFHG38aWNMtJiB5WtTSX8Zq9SkCZ2ZD                                                   │
-│  └──                                                                                                      │
-│ Published Objects:                                                                                        │
-│  ┌──                                                                                                      │
-│  │ PackageID: 0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5                          │
-│  │ Version: 1                                                                                             │
-│  │ Digest: HzViqZfg1bfv1xWM46SY9mSveCxgBAcS7jyVrGJRFn8p                                                   │
-│  │ Modules: vault                                                                                         │
-│  └──                                                                                                      │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-╭───────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ Balance Changes                                                                                   │
-├───────────────────────────────────────────────────────────────────────────────────────────────────┤
-│  ┌──                                                                                              │
-│  │ Owner: Account Address ( 0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201 )  │
-│  │ CoinType: 0x2::sui::SUI                                                                        │
-│  │ Amount: -46746680                                                                              │
-│  └──                                                                                              │
-╰───────────────────────────────────────────────────────────────────────────────────────────────────╯
-bambo@MrBello:~/vault$ 
+# Vault
+
+Vault is an AI-powered student finance platform built on Sui. It helps students manage allowances, stipends, and daily spending through enforceable onchain budget vaults, category-based spending rules, flexible category swaps, overspending controls, and long-term financial memory powered offchain by Walrus and MemWal.
+
+Unlike a traditional budgeting app that only records expenses after they happen, Vault enforces budget rules directly onchain. Students deposit SUI into a budget vault, allocate that balance across spending categories, and make tracked payments from the vault. The contract records events that an offchain AI/indexer layer can persist to Walrus and MemWal for personalized financial guidance over time.
+
+## Published Project
+
+Current recorded testnet package:
+
+```txt
+Package ID:
+0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5
+
+Original ID:
+0x6e5fbdaf83d98b2e44c08470a563093184f130fd42f724892167905c43ae06c5
+
+TreasuryConfig object:
+0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511
+
+Deployer / treasury address:
+0x53a382534cff621f23ea14563ab594f94d4125d96ef53d3f4ded693ba9c49201
+
+Upgrade capability:
+0xd6c1d7d14069c02d6c65555be9452eda8aaa4946243b880af5b021b7a46e2f19
+```
+
+Note: the local contract may include changes made after the last publish, including the `Other` category average rule. Republish the package before relying on those latest changes on testnet.
+
+## Core Flow
+
+1. Student connects a Sui wallet.
+2. Student creates a budget by choosing a cycle, date range, total amount, and category allocations.
+3. Student deposits SUI into the budget vault in one transaction.
+4. Student spends from a selected category by entering a recipient, amount, and note.
+5. The contract checks ownership, active status, vault balance, category allocation, and cycle expiry.
+6. If the category has enough remaining allocation, payment succeeds.
+7. If the category is exhausted, the student can swap unused allocation from another category with a 5% fee.
+8. If overspending is enabled, the student can spend past the category allocation with a 10% fee.
+9. At the end of the cycle, remaining funds can be saved, withdrawn, rolled over, or redistributed into a new budget.
+10. Events emitted by the contract can be indexed and stored through Walrus and MemWal as persistent AI memory.
+
+## Budget Categories
+
+The expected default category IDs are:
+
+```txt
+0 = Food
+1 = Transport
+2 = Academic
+3 = Entertainment
+4 = Other
+```
+
+The contract enforces this rule when creating or redistributing a budget:
+
+```txt
+Other allocation must not be greater than the average allocation of all non-Other categories.
+```
+
+Example:
+
+```txt
+Food: 40 SUI
+Transport: 20 SUI
+Academic: 25 SUI
+Entertainment: 10 SUI
+Other: 5 SUI
+
+Average of main categories = 23.75 SUI
+Other = 5 SUI, so this is valid.
+```
+
+## Fees
+
+Fees are fixed in the contract:
+
+```txt
+Category swap fee: 5%
+Overspending fee: 10%
+```
+
+Fees are deducted from the student's existing `BudgetVault` balance, not from a separate wallet payment.
+
+Fee destination:
+
+```txt
+The deployer address stored in the shared TreasuryConfig object.
+```
+
+## Smart Contract Objects
+
+`BudgetVault`
+
+Owned by the student. Stores the active budget state, category allocations, spend totals, SUI balance, overspending setting, and offchain memory reference.
+
+`TreasuryConfig`
+
+Shared object created during package initialization. Stores the deployer treasury address used for swap and overspend fees.
+
+`SavingsVault`
+
+Owned by the student. Created when the student closes an expired budget using the save action.
+
+## Main Write Functions
+
+`create_budget`
+
+Creates a funded budget vault, stores category allocations, validates the `Other` category rule, and transfers the vault object to the student.
+
+`spend`
+
+Pays a recipient from a category when the category has enough remaining allocation. No platform fee is charged.
+
+`swap_categories`
+
+Moves unused allocation from one category to another. Charges a 5% fee to the deployer treasury.
+
+`overspend`
+
+Allows a student to spend beyond a category allocation if overspending is enabled. Charges a 10% fee to the deployer treasury.
+
+`close_budget`
+
+Closes an expired budget and either saves remaining funds, withdraws them, or returns them for rollover handling.
+
+`redistribute_budget`
+
+Starts a new budget cycle using the remaining balance in an expired vault. The new allocations must equal the remaining vault balance.
+
+`withdraw_savings`
+
+Withdraws all SUI from a `SavingsVault` back to the student wallet.
+
+## Read And Helper Functions
+
+```txt
+cycle_daily
+cycle_weekly
+cycle_monthly
+cycle_half_year
+cycle_yearly
+action_save
+action_roll_over
+action_withdraw
+action_redistribute
+swap_fee_bps
+overspend_fee_bps
+owner
+is_active
+total_spent
+total_fees_paid
+vault_balance
+treasury
+category_count
+category_remaining
+category_spent
+```
+
+## Sample Human-Readable Payloads
+
+Create budget:
+
+```txt
+Function:
+vault::create_budget
+
+deposit:
+100 SUI
+
+cycle:
+Monthly
+
+start_ms:
+1764547200000
+
+end_ms:
+1767225599000
+
+categories:
+- id: 0, name: Food, allocation: 40 SUI
+- id: 1, name: Transport, allocation: 20 SUI
+- id: 2, name: Academic, allocation: 25 SUI
+- id: 3, name: Entertainment, allocation: 10 SUI
+- id: 4, name: Other, allocation: 5 SUI
+
+allow_overspend:
+true
+
+memory_ref:
+walrus://student-001/budget/monthly-2025-12
+```
+
+Spend:
+
+```txt
+Function:
+vault::spend
+
+vault:
+0xBUDGET_VAULT_OBJECT_ID
+
+category_id:
+0
+
+recipient:
+0xRECIPIENT_ADDRESS
+
+amount:
+8 SUI
+
+note:
+Lunch at cafeteria
+
+clock:
+0x6
+```
+
+Swap categories:
+
+```txt
+Function:
+vault::swap_categories
+
+treasury_config:
+0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511
+
+vault:
+0xBUDGET_VAULT_OBJECT_ID
+
+from_category_id:
+1
+
+to_category_id:
+0
+
+amount:
+5 SUI
+
+clock:
+0x6
+
+Fee:
+5% = 0.25 SUI
+```
+
+Overspend:
+
+```txt
+Function:
+vault::overspend
+
+treasury_config:
+0xb2c611826592da1834d8f383291b07298c15c756526b92362477e95668cfa511
+
+vault:
+0xBUDGET_VAULT_OBJECT_ID
+
+category_id:
+0
+
+recipient:
+0xRECIPIENT_ADDRESS
+
+amount:
+8 SUI
+
+note:
+Emergency food expense
+
+clock:
+0x6
+
+Fee:
+10% = 0.8 SUI
+```
+
+Close budget:
+
+```txt
+Function:
+vault::close_budget
+
+vault:
+0xBUDGET_VAULT_OBJECT_ID
+
+action:
+Save, Roll Over, or Withdraw
+
+clock:
+0x6
+```
+
+Redistribute budget:
+
+```txt
+Function:
+vault::redistribute_budget
+
+vault:
+0xEXPIRED_BUDGET_VAULT_OBJECT_ID
+
+cycle:
+Weekly
+
+start_ms:
+1767225600000
+
+end_ms:
+1767830399000
+
+new categories:
+- id: 0, name: Food, allocation: 15 SUI
+- id: 1, name: Transport, allocation: 8 SUI
+- id: 2, name: Academic, allocation: 10 SUI
+- id: 3, name: Entertainment, allocation: 4 SUI
+- id: 4, name: Other, allocation: 3 SUI
+
+allow_overspend:
+false
+
+memory_ref:
+walrus://student-001/budget/weekly-2026-01-01
+
+clock:
+0x6
+```
+
+Withdraw savings:
+
+```txt
+Function:
+vault::withdraw_savings
+
+savings:
+0xSAVINGS_VAULT_OBJECT_ID
+```
+
+## Development
+
+Build the package:
+
+```bash
+sui move build
+```
+
+Run tests:
+
+```bash
+sui move test
+```
+
+Publish:
+
+```bash
+sui client publish
+```
+
+After publishing, update `Published.toml` and this README with the new package ID and shared `TreasuryConfig` object ID.
