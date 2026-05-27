@@ -1,0 +1,1589 @@
+{
+  "id": {
+    "address": "sui",
+    "name": "display_registry"
+  },
+  "doc": null,
+  "immediate_dependencies": [
+    {
+      "address": "std",
+      "name": "internal"
+    },
+    {
+      "address": "std",
+      "name": "option"
+    },
+    {
+      "address": "std",
+      "name": "string"
+    },
+    {
+      "address": "sui",
+      "name": "derived_object"
+    },
+    {
+      "address": "sui",
+      "name": "display"
+    },
+    {
+      "address": "sui",
+      "name": "object"
+    },
+    {
+      "address": "sui",
+      "name": "package"
+    },
+    {
+      "address": "sui",
+      "name": "transfer"
+    },
+    {
+      "address": "sui",
+      "name": "tx_context"
+    },
+    {
+      "address": "sui",
+      "name": "vec_map"
+    }
+  ],
+  "attributes": [],
+  "functions": {
+    "new": {
+      "source_index": 0,
+      "index": 0,
+      "doc": " Create a new Display object for a given type `T` using `internal::Permit` to\n prove type ownership.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "registry",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "DisplayRegistry",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "_",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "std",
+                "name": "internal"
+              },
+              "name": "Permit",
+              "type_arguments": [
+                {
+                  "phantom": true,
+                  "argument": {
+                    "NamedTypeParameter": "T"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "ctx",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "tx_context"
+                  },
+                  "name": "TxContext",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "Display",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "DisplayCap",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "new_with_publisher": {
+      "source_index": 1,
+      "index": 1,
+      "doc": " Create a new display object using the `Publisher` object.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "registry",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "DisplayRegistry",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "publisher",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "package"
+                  },
+                  "name": "Publisher",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "ctx",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "tx_context"
+                  },
+                  "name": "TxContext",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "Display",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "DisplayCap",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "unset": {
+      "source_index": 2,
+      "index": 2,
+      "doc": " Unset a key from display.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "Display",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "_",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "DisplayCap",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "std",
+                "name": "string"
+              },
+              "name": "String",
+              "type_arguments": []
+            }
+          }
+        }
+      ],
+      "return_": []
+    },
+    "set": {
+      "source_index": 3,
+      "index": 3,
+      "doc": " Set a value for the specified key, replaces existing value if it exists.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "Display",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "_",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "DisplayCap",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "std",
+                "name": "string"
+              },
+              "name": "String",
+              "type_arguments": []
+            }
+          }
+        },
+        {
+          "name": "value",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "std",
+                "name": "string"
+              },
+              "name": "String",
+              "type_arguments": []
+            }
+          }
+        }
+      ],
+      "return_": []
+    },
+    "clear": {
+      "source_index": 4,
+      "index": 4,
+      "doc": " Clear the display vec_map, allowing a fresh re-creation of fields",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "Display",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "_",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "DisplayCap",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": []
+    },
+    "share": {
+      "source_index": 5,
+      "index": 5,
+      "doc": " Share the `Display` object to finalize the creation.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "sui",
+                "name": "display_registry"
+              },
+              "name": "Display",
+              "type_arguments": [
+                {
+                  "phantom": true,
+                  "argument": {
+                    "NamedTypeParameter": "T"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "return_": []
+    },
+    "claim": {
+      "source_index": 6,
+      "index": 6,
+      "doc": " Allow a legacy Display holder to claim the capability object.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": [
+            "Key"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "Display",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "legacy",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "sui",
+                "name": "display"
+              },
+              "name": "Display",
+              "type_arguments": [
+                {
+                  "phantom": true,
+                  "argument": {
+                    "NamedTypeParameter": "T"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "ctx",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "tx_context"
+                  },
+                  "name": "TxContext",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "DisplayCap",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "claim_with_publisher": {
+      "source_index": 7,
+      "index": 7,
+      "doc": " Allow claiming a new display using `Publisher` as proof of ownership.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": [
+            "Key"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "Display",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "publisher",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "package"
+                  },
+                  "name": "Publisher",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "ctx",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "tx_context"
+                  },
+                  "name": "TxContext",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "DisplayCap",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "system_migration": {
+      "source_index": 8,
+      "index": 8,
+      "doc": " Allow the `SystemMigrationCap` holder to create display objects with supplied\n values. The migration is performed once on launch of the DisplayRegistry,\n further migrations will have to be performed for each object, and will only\n be possible until legacy `display` methods are finally deprecated.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": [
+            "Key"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "registry",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "DisplayRegistry",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "_",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "SystemMigrationCap",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "keys",
+          "type_": {
+            "vector": {
+              "Datatype": {
+                "module": {
+                  "address": "std",
+                  "name": "string"
+                },
+                "name": "String",
+                "type_arguments": []
+              }
+            }
+          }
+        },
+        {
+          "name": "values",
+          "type_": {
+            "vector": {
+              "Datatype": {
+                "module": {
+                  "address": "std",
+                  "name": "string"
+                },
+                "name": "String",
+                "type_arguments": []
+              }
+            }
+          }
+        },
+        {
+          "name": "_ctx",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "tx_context"
+                  },
+                  "name": "TxContext",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": []
+    },
+    "migrate_v1_to_v2": {
+      "source_index": 9,
+      "index": 9,
+      "doc": " Enables migrating legacy display into the new one,\n if a new one has not yet been created.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": [
+            "Key"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "registry",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "DisplayRegistry",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "legacy",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "sui",
+                "name": "display"
+              },
+              "name": "Display",
+              "type_arguments": [
+                {
+                  "phantom": true,
+                  "argument": {
+                    "NamedTypeParameter": "T"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "ctx",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "tx_context"
+                  },
+                  "name": "TxContext",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "Display",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "DisplayCap",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "destroy_system_migration_cap": {
+      "source_index": 10,
+      "index": 10,
+      "doc": " Destroy the `SystemMigrationCap` after successfully migrating all V1 instances.",
+      "attributes": [],
+      "visibility": "Private",
+      "entry": true,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "cap",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "sui",
+                "name": "display_registry"
+              },
+              "name": "SystemMigrationCap",
+              "type_arguments": []
+            }
+          }
+        }
+      ],
+      "return_": []
+    },
+    "transfer_migration_cap": {
+      "source_index": 11,
+      "index": 11,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Private",
+      "entry": true,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "cap",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "sui",
+                "name": "display_registry"
+              },
+              "name": "SystemMigrationCap",
+              "type_arguments": []
+            }
+          }
+        },
+        {
+          "name": "recipient",
+          "type_": "address"
+        }
+      ],
+      "return_": []
+    },
+    "delete_legacy": {
+      "source_index": 12,
+      "index": 12,
+      "doc": " Allow deleting legacy display objects, as long as the cap has been claimed first.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": [
+            "Key"
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "Display",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "legacy",
+          "type_": {
+            "Datatype": {
+              "module": {
+                "address": "sui",
+                "name": "display"
+              },
+              "name": "Display",
+              "type_arguments": [
+                {
+                  "phantom": true,
+                  "argument": {
+                    "NamedTypeParameter": "T"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "return_": []
+    },
+    "fields": {
+      "source_index": 13,
+      "index": 13,
+      "doc": " Get a reference to the fields of display.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "Display",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Reference": [
+            false,
+            {
+              "Datatype": {
+                "module": {
+                  "address": "sui",
+                  "name": "vec_map"
+                },
+                "name": "VecMap",
+                "type_arguments": [
+                  {
+                    "phantom": false,
+                    "argument": {
+                      "Datatype": {
+                        "module": {
+                          "address": "std",
+                          "name": "string"
+                        },
+                        "name": "String",
+                        "type_arguments": []
+                      }
+                    }
+                  },
+                  {
+                    "phantom": false,
+                    "argument": {
+                      "Datatype": {
+                        "module": {
+                          "address": "std",
+                          "name": "string"
+                        },
+                        "name": "String",
+                        "type_arguments": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "cap_id": {
+      "source_index": 14,
+      "index": 14,
+      "doc": " Get the cap ID for the display.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "display",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "Display",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "NamedTypeParameter": "T"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "std",
+              "name": "option"
+            },
+            "name": "Option",
+            "type_arguments": [
+              {
+                "phantom": false,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "object"
+                    },
+                    "name": "ID",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "migration_cap_receiver": {
+      "source_index": 15,
+      "index": 15,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Package",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [],
+      "return_": [
+        "address"
+      ]
+    },
+    "new_display": {
+      "source_index": 16,
+      "index": 16,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Private",
+      "entry": false,
+      "type_parameters": [
+        {
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "registry",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "display_registry"
+                  },
+                  "name": "DisplayRegistry",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "ctx",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "tx_context"
+                  },
+                  "name": "TxContext",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "Display",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "display_registry"
+            },
+            "name": "DisplayCap",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "NamedTypeParameter": "T"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "create": {
+      "source_index": 17,
+      "index": 17,
+      "doc": " Create a new display registry object callable only from 0x0 (end of epoch)",
+      "attributes": [
+        {
+          "Parameterized": [
+            "allow",
+            [
+              {
+                "Name": "unused_function"
+              }
+            ]
+          ]
+        }
+      ],
+      "visibility": "Private",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "ctx",
+          "type_": {
+            "Reference": [
+              true,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "tx_context"
+                  },
+                  "name": "TxContext",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": []
+    }
+  },
+  "structs": {
+    "DisplayRegistry": {
+      "index": 0,
+      "doc": " The root of display, to enable derivation of addresses.\n The address is system-generated at `0xd`",
+      "attributes": [],
+      "abilities": [
+        "Key"
+      ],
+      "type_parameters": [],
+      "fields": {
+        "positional_fields": false,
+        "fields": {
+          "id": {
+            "index": 0,
+            "doc": null,
+            "type_": {
+              "Datatype": {
+                "module": {
+                  "address": "sui",
+                  "name": "object"
+                },
+                "name": "UID",
+                "type_arguments": []
+              }
+            }
+          }
+        }
+      }
+    },
+    "SystemMigrationCap": {
+      "index": 1,
+      "doc": " A singleton capability object to enable migrating all V1 displays into V2.",
+      "attributes": [],
+      "abilities": [
+        "Key"
+      ],
+      "type_parameters": [],
+      "fields": {
+        "positional_fields": false,
+        "fields": {
+          "id": {
+            "index": 0,
+            "doc": null,
+            "type_": {
+              "Datatype": {
+                "module": {
+                  "address": "sui",
+                  "name": "object"
+                },
+                "name": "UID",
+                "type_arguments": []
+              }
+            }
+          }
+        }
+      }
+    },
+    "Display": {
+      "index": 2,
+      "doc": " This is the struct that holds the display values for a type T.",
+      "attributes": [],
+      "abilities": [
+        "Key"
+      ],
+      "type_parameters": [
+        {
+          "phantom": true,
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "fields": {
+        "positional_fields": false,
+        "fields": {
+          "id": {
+            "index": 0,
+            "doc": null,
+            "type_": {
+              "Datatype": {
+                "module": {
+                  "address": "sui",
+                  "name": "object"
+                },
+                "name": "UID",
+                "type_arguments": []
+              }
+            }
+          },
+          "fields": {
+            "index": 1,
+            "doc": " All the (key,value) entries for a given display object.",
+            "type_": {
+              "Datatype": {
+                "module": {
+                  "address": "sui",
+                  "name": "vec_map"
+                },
+                "name": "VecMap",
+                "type_arguments": [
+                  {
+                    "phantom": false,
+                    "argument": {
+                      "Datatype": {
+                        "module": {
+                          "address": "std",
+                          "name": "string"
+                        },
+                        "name": "String",
+                        "type_arguments": []
+                      }
+                    }
+                  },
+                  {
+                    "phantom": false,
+                    "argument": {
+                      "Datatype": {
+                        "module": {
+                          "address": "std",
+                          "name": "string"
+                        },
+                        "name": "String",
+                        "type_arguments": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "cap_id": {
+            "index": 2,
+            "doc": " The capability object ID. It's `Option` because legacy Displays will need claiming.",
+            "type_": {
+              "Datatype": {
+                "module": {
+                  "address": "std",
+                  "name": "option"
+                },
+                "name": "Option",
+                "type_arguments": [
+                  {
+                    "phantom": false,
+                    "argument": {
+                      "Datatype": {
+                        "module": {
+                          "address": "sui",
+                          "name": "object"
+                        },
+                        "name": "ID",
+                        "type_arguments": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "DisplayCap": {
+      "index": 3,
+      "doc": " The capability object that is used to manage the display.",
+      "attributes": [],
+      "abilities": [
+        "Key",
+        "Store"
+      ],
+      "type_parameters": [
+        {
+          "phantom": true,
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "fields": {
+        "positional_fields": false,
+        "fields": {
+          "id": {
+            "index": 0,
+            "doc": null,
+            "type_": {
+              "Datatype": {
+                "module": {
+                  "address": "sui",
+                  "name": "object"
+                },
+                "name": "UID",
+                "type_arguments": []
+              }
+            }
+          }
+        }
+      }
+    },
+    "DisplayKey": {
+      "index": 4,
+      "doc": " The key used for deriving the instance of `Display`.",
+      "attributes": [],
+      "abilities": [
+        "Copy",
+        "Drop",
+        "Store"
+      ],
+      "type_parameters": [
+        {
+          "phantom": true,
+          "name": "T",
+          "constraints": []
+        }
+      ],
+      "fields": {
+        "positional_fields": true,
+        "fields": {
+          "dummy_field": {
+            "index": 0,
+            "type_": "bool"
+          }
+        }
+      }
+    }
+  },
+  "enums": {}
+}

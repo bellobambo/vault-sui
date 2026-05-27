@@ -1,0 +1,1355 @@
+{
+  "id": {
+    "address": "sui",
+    "name": "ristretto255"
+  },
+  "doc": " Group operations of BLS12-381.\n Only available in devnet.",
+  "immediate_dependencies": [
+    {
+      "address": "sui",
+      "name": "bcs"
+    },
+    {
+      "address": "sui",
+      "name": "group_ops"
+    }
+  ],
+  "attributes": [],
+  "functions": {
+    "scalar_from_bytes": {
+      "source_index": 0,
+      "index": 0,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "bytes",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "vector": "u8"
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_from_u64": {
+      "source_index": 1,
+      "index": 1,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "x",
+          "type_": "u64"
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_zero": {
+      "source_index": 2,
+      "index": 2,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_one": {
+      "source_index": 3,
+      "index": 3,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_add": {
+      "source_index": 4,
+      "index": 4,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e1",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "e2",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_sub": {
+      "source_index": 5,
+      "index": 5,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e1",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "e2",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_mul": {
+      "source_index": 6,
+      "index": 6,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e1",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "e2",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_div": {
+      "source_index": 7,
+      "index": 7,
+      "doc": " Returns e2/e1, fails if a is zero.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e1",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "e2",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_neg": {
+      "source_index": 8,
+      "index": 8,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "scalar_inv": {
+      "source_index": 9,
+      "index": 9,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "Scalar",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "g_from_bytes": {
+      "source_index": 10,
+      "index": 10,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "bytes",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "vector": "u8"
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "G",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "g_identity": {
+      "source_index": 11,
+      "index": 11,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "G",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "g_generator": {
+      "source_index": 12,
+      "index": 12,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "G",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "g_add": {
+      "source_index": 13,
+      "index": 13,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e1",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "G",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "e2",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "G",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "G",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "g_sub": {
+      "source_index": 14,
+      "index": 14,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e1",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "G",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "e2",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "G",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "G",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "g_mul": {
+      "source_index": 15,
+      "index": 15,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e1",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "e2",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "G",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "G",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "g_div": {
+      "source_index": 16,
+      "index": 16,
+      "doc": " Returns e2 / e1, fails if scalar is zero.",
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e1",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "Scalar",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "e2",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "G",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "G",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "g_neg": {
+      "source_index": 17,
+      "index": 17,
+      "doc": null,
+      "attributes": [],
+      "visibility": "Public",
+      "entry": false,
+      "type_parameters": [],
+      "parameters": [
+        {
+          "name": "e",
+          "type_": {
+            "Reference": [
+              false,
+              {
+                "Datatype": {
+                  "module": {
+                    "address": "sui",
+                    "name": "group_ops"
+                  },
+                  "name": "Element",
+                  "type_arguments": [
+                    {
+                      "phantom": true,
+                      "argument": {
+                        "Datatype": {
+                          "module": {
+                            "address": "sui",
+                            "name": "ristretto255"
+                          },
+                          "name": "G",
+                          "type_arguments": []
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "return_": [
+        {
+          "Datatype": {
+            "module": {
+              "address": "sui",
+              "name": "group_ops"
+            },
+            "name": "Element",
+            "type_arguments": [
+              {
+                "phantom": true,
+                "argument": {
+                  "Datatype": {
+                    "module": {
+                      "address": "sui",
+                      "name": "ristretto255"
+                    },
+                    "name": "G",
+                    "type_arguments": []
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "structs": {
+    "Scalar": {
+      "index": 0,
+      "doc": null,
+      "attributes": [],
+      "abilities": [
+        "Store"
+      ],
+      "type_parameters": [],
+      "fields": {
+        "positional_fields": false,
+        "fields": {
+          "dummy_field": {
+            "index": 0,
+            "type_": "bool"
+          }
+        }
+      }
+    },
+    "G": {
+      "index": 1,
+      "doc": null,
+      "attributes": [],
+      "abilities": [
+        "Store"
+      ],
+      "type_parameters": [],
+      "fields": {
+        "positional_fields": false,
+        "fields": {
+          "dummy_field": {
+            "index": 0,
+            "type_": "bool"
+          }
+        }
+      }
+    }
+  },
+  "enums": {}
+}
