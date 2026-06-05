@@ -1,7 +1,5 @@
 # Vault
 
-## AI-Powered Student Finance On Sui
-
 Vault helps students manage allowances, stipends, and daily spending through onchain budget vaults.
 
 Students deposit SUI, split funds across categories, spend from those categories, swap unused allocation when needed, and optionally overspend with a higher fee. AI memory is handled offchain with Walrus and MemWal using contract events and memory references.
